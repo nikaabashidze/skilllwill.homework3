@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Functions</title>
+</head>
+<body>
+
+
+    <div class="container">
+
+    <aside class="condition"> 
+
+            <div id="condition1"> 
+                
+                <p>დაწერე ფუნქცია, რომელიც პარამეტრად მიიღებს n ცალ რიცხვს (n > 2). ფუნქციამ უნდა დააბრუნოს 2
+                     - ელემენტიანი მასივი, სადაც პირველი ელემენტია პირველი და მეორე პარამეტრის ჯამი, ხოლო მეორე
+                      ელემენტი - მესამე ელემენტიდან დაწყებული ყველა დანარჩენის ნამრავლი</p>
+                
+                
+                </div>
+            <div id="condition2">
+                    <p>
+                        დავუშვათ გვინდა ობიექტიდან წავიკითხოთ შემდეგი ველი: user.banks[2].address.city.  დაწერე ფუნქცია,
+                         რომელიც პარამეტრად მიიღებს user ობიექტს და დააბრუნებს city-ს. გამოიყენე destructuring-ი. თუ ასეთი 
+                         ველი არ არსებობს უნდა დაბრუნდეს undefined
+                    </p>
+
+            </div>
+            <div id="condition3">
+                <p>
+                    დაწერე ფუნქცია, რომელიც პარამეტრად მიიღებს ნებისმიერ ობიექტს და დააბრუნებს იგივე მნიშვნელობების მქონე ახალ (განსხვავებულ) ობიექტს.
+                    გაითვალისწინე, რომ თუ  ობიექტში კიდევ სხვა ობიექტებია იმათი ასლებიც უნდა შეიქმნას.
+                    გამოიყენეთ (...) ოპერატორი
+                </p>
+            </div>
+    
+    </aside>
+
+            <div  class="cont"> 
+
+                <div class="buttons">
+                <button id="homework1">Function 1</button>
+                <button id="homework2">Function 2</button>
+                <button id="homework3">Function 3</button>
+                </div>
+
+                    <div class="restart">
+                        <a  href="index.html"> <h6>Clear Consol</h6> </a>                  
+                    </div>
+                
+
+                <div class="console"></div>
+
+            </div>
+            <aside class="functions">
+
+
+                    <div id="function1">
+          
+<pre>
+const calculate = (num1, num2, ...args) => {  
+    let sum1 = 0;
+    let sum2 = 1;
+
+    for (const num of args) {
+        sum1 = num1 + num2;
+        sum2 *= num;
+    }
+
+    return [sum1, sum2];
+}
+
+console.log(calculate(3, 5, 10, 5, 3, 2));
+</pre>
+
+                        </div>
+                        
+
+
+                       <div id="function2">
+<pre>
+const user = {
+    banks: {
+        TBC: {
+            address: {
+                city: 'tbilisi',
+                street: 'gorgiladze 18'
+            }
+        },
+        VTB: {
+            address: {
+                city: 'tbilisi'
+            }
+        },
+        BOG: {
+            address: {
+                street: 'gorgiladze 12',
+                city: 'Batumi'
+            }
+        },
+        CREDO: {
+            address: {
+                city: 'khutaisi',
+            }
+        }
+    }
+};
+
+const destructuring = (user) => {
+    const { banks: { BOG: { address: { city = {} } } } } = user;
+    return city;
+};
+
+console.log(destructuring(user));
+</pre>
+                       
+    
+
+                   
+
+                       </div> 
+
+
+
+                       <div id="function3">
+
+<pre>
+const car = {
+    name: 'Chevrolette Camaro',
+    modelYear: 1969,
+    profile: {
+        class: 'Muscle car',
+        bodystyle: '2-door hardtop',
+        design: 'Henry Haga',
+    },
+    Assembly: ['California', 'Norwood', 'Ohio', 'caracas']
+};
+
+const spreadop = (car) => {
+    const spread = {
+        ...car,
+        profile: {
+            ...car.profile
+        },
+        Assembly: [...car.Assembly]
+    };
+    return spread;
+};
+
+const car2 = spreadop(car);
+
+
+
+car.modelYear = 1971;
+
+console.log(car.modelYear);
+console.log(car2.modelYear);
+</pre>
+
+
+                       </div> 
+            
+            </aside>
+            
+        </div>
+          
+
+            
+    <script src="app.js"></script>
+</body>
+</html>
